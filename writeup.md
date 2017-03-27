@@ -1,11 +1,5 @@
 #**Traffic Sign Recognition** 
 
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
-
 **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
@@ -87,9 +81,9 @@ Cell 7 contains the actual code where the preprocess method (YUV histogram equal
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. 
 The training, validation and test data sets were already split. Here are the sizes
 
-Training dataset size 34799
-Validation dataset size 4410
-Testing dataset size 12630
+Training dataset size 34799 <br/>
+Validation dataset size 4410<br/>
+Testing dataset size 12630<br/>
 
 
 ####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
@@ -119,7 +113,7 @@ My final model consisted of the following layers:
 | Regularization	   	| Dropout (keep prob =0.5)  											|
 | Output Layer			| 256 inputs . 43 outputs 												|
 | Softmax				| Apply softmax to output layer											|
-|:---------------------:|:---------------------------------------------------------------------:|
+
  
 The model architecture is detailed in the markup above cell 10 in the ipython notebook.
 
@@ -146,22 +140,23 @@ I started with the base LeNet model that we used for the LeNet lab problem. With
 * What were some problems with the initial architecture?
 The data wasn't pre processed.  A lot of the raw images had low lighting and without pre-processing the model was not able to learn from them
 
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-
-I then updated the model to use input data with normalization and YUV histogram equalization. That improved the accuracty to 92%. Then I updated the model to be a multi scale architecture by connecting both layer 1 and layer 2 convolutons to layer3 and also update the filter depth to higher values so the convolutions can learn more features . This increased the validation to 97%.
+* How was the architecture adjusted and why was it adjusted? 
+<p>I updated the model to use input data with normalization and YUV histogram equalization. That improved the accuracty to 92%. Then I updated the model to be a multi scale architecture by connecting both layer 1 and layer 2 convolutons to layer3 and also update the filter depth to higher values so the convolutions can learn more features . This increased the validation to 97%.</p>
 
 * Which parameters were tuned? How were they adjusted and why?
-Adjusted the depth of the convolutions filters so the model can learn more features. To improve the validation accuracy to get closer to the training accuracy, set the dropout regularization parameters to 0.5 in the fully connected layers
+<p>Adjusted the depth of the convolutions filters so the model can learn more features. To improve the validation accuracy to get closer to the training accuracy, set the dropout regularization parameters to 0.5 in the fully connected layers
+</p>
 
 If a well known architecture was chosen:
 * What architecture was chosen?
-  Multi-scale  convolutional LeNet archictecture
+  <p>Multi-scale  convolutional LeNet archictecture</p>
   
 * Why did you believe it would be relevant to the traffic sign application?
-  Traffic signs have edges and shapes that can easily distinguish each other. A colvolutional neural net like LeNet works well   to learn susch patterns in images. Also by connecting convolutions from both layers to the Fully connected layer, we allow     the model to learn from both convolution scales.
+  <p>Traffic signs have edges and shapes that can easily distinguish each other. A colvolutional neural net like LeNet works well to learn susch patterns in images. Also by connecting convolutions from both layers to the Fully connected layer, we allow  the model to learn from both convolution scales.</p>
   
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
-  We achieved a training accuracy of 100% and validation accuracy of 97.5%. This is the best score from all the possible parameter tuning, pre-processing (Grayscale was slightly lower in validation accuracy) that we could achieve. We could possibly improve the validation accuracy by 1 or 2 percentage points using augmented images (scale, position, rotation etc.). For now 97.5% validation accuracy is the best we could achieve without augmented data. The test score was 95.84 which shows that the model has learnt a fairly good deal on the input dataset
+<p>We achieved a training accuracy of 100% and validation accuracy of 97.5%. This is the best score from all the possible parameter tuning, pre-processing (Grayscale was slightly lower in validation accuracy) that we could achieve. We could possibly improve the validation accuracy by 1 or 2 percentage points using augmented images (scale, position, rotation etc.). For now 97.5% validation accuracy is the best we could achieve without augmented data. The test score was 95.84 which shows that the model has learnt a fairly good deal on the input dataset
+</p>
 
 ###Test a Model on New Images
 
